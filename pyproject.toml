@@ -1,0 +1,42 @@
+[project]
+name = "telegram-claude-bot"
+version = "0.1.0"
+description = "Telegram bot for Claude CLI using claude-code-acp"
+authors = [
+    { name = "yazelin" },
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+keywords = ["telegram", "claude", "bot", "acp", "claude-code"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "claude-code-acp>=0.3.4",
+    "python-telegram-bot>=21.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+telegram-claude-bot = "telegram_claude_bot:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/telegram_claude_bot"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
